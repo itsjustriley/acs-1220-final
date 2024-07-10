@@ -27,3 +27,48 @@
 
 
 {% endblock %}
+
+<!-- # forms.py
+
+class EmailForm(FlaskForm):
+    email_address = StringField('Email Address', 
+        validators=[DataRequired(), Email()])
+    message = StringField('Your Message', validators=[DataRequired()])
+    submit = SubmitField('Send Your Message')
+So far, here is what I have for the route using the EmailForm:
+
+# routes.py
+
+@app.route('/email_form', methods=['GET', 'POST'])
+def email_form():
+    form = EmailForm()
+    if form.validate_on_submit():
+        send_email()
+    return render_template('send_email.html', form=form)
+In the template send_email.html, I have the following:
+
+<-- send_email.html snippet -->
+
+<form method="POST">
+    <fieldset>
+        <legend>Send an Email</legend>
+        <br>
+        {{ form.email_address.label }}<br>
+        {{ form.email_address }}<br>
+        <ul>
+            {% for error in form.email_address.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        <br>
+        {{ form.message.label }}<br>
+        {{ form.message }}<br>
+        <ul>
+            {% for error in form.message.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        <br>
+        {{ form.submit }}
+    </fieldset>
+</form>
