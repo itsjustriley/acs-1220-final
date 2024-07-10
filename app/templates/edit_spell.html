@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-header">
+  <h2>Edit Spell</h2>
+</div>
+
+  <form method="POST">
+      {{ form.hidden_tag() }}
+      <fieldset>
+          <legend>Edit your spell:</legend>
+          <br>
+          {{ form.name.label }}<br>
+          {{ form.name }}<br>
+          <br>
+          {{ form.level.label }}<br>
+          {{ form.level }}<br>
+          <br>
+          {{ form.school.label }}<br>
+          {{ form.school }}<br>
+          <br>
+          {{ form.description.label }}<br>
+          {{ form.description }}<br>
+          <br>
+          {{ form.submit }}
+      </fieldset>
+  </form>
+
+{% endblock %}

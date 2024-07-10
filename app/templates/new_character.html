@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-header">
+  <h2>New Character</h2>
+</div>
+
+  <form method="POST">
+      {{ form.hidden_tag() }}
+      <fieldset>
+          <legend>Please enter the character information:</legend>
+          <br>
+          {{ form.name.label }}<br>
+          {{ form.name }}<br>
+          <br>
+          {{ form.level.label }}<br>
+          {{ form.level }}<br>
+          <br>
+          {{ form.class_.label }}<br>
+          {{ form.class_ }}<br>
+          <br>
+          {{ form.submit }}
+      </fieldset>
+  </form>
+
+{% endblock %}

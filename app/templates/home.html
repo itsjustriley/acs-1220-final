@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if current_user.username %}
+  <h1>Welcome, {{ current_user.username }}!</h1>
+  <ul>
+    <li><a href="{{ url_for('main.characters') }}">Characters</a></li>
+    <li><a href="{{ url_for('main.spells') }}">Spells</a></li>
+  </ul>
+{% else %}
+  <h1>Welcome to Spell Tracker!</h1>
+{% endif %}
+
+Welcome to Spell Tracker! This is a simple web application that allows you to track your Dungeons & Dragons characters and their spells. If you're new here, you can <a href="{{ url_for('auth.signup') }}">register</a> for an account. If you already have an account, you can <a href="{{ url_for('auth.login') }}">log in</a> to get started.
+
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if character %}
+<div class="page-header">
+    <h2>{{ character.name }}</h2>
+    <p>Level: {{ character.level }}</p>
+    <p>Class: {{ character.class_ }}</p>
+</div>
+<div class="crud-buttons">
+    <form method="GET" action="/characters/{{ character.id }}/edit">
+        <button type="submit">Edit</button>
+    </form>
+    <form method="POST" action="/characters/{{ character.id }}/delete">
+        <button type="submit">Delete</button>
+    </form>
+</div>
+
+<div>
+    {% if spells %}
+        <h3>Spells</h3>
+        <div class = "spellcard-buttons">
+            <form method="GET" action="/spells/new">
+                <button type="submit">new spell</button>
+            </form>
+        </div>
+        <div>
+        {% for spell in spells %}
+            <div class="spellcard">
+                <h4>{{ spell.name }}</h4>
+                <small>Level {{ spell.level }} {{ spell.school }}</small>
+                <form method="GET" action="/spells/{{ spell.id }}">
+                    <button type="submit">Details</button>
+                </form>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h3>No spells found</h3>
+        <a href="/spells/new">Add a new spell</a>
+        or
+        <a href="/spells">view all spells</a>
+    {% endif %}
+</div>
+
+{% else %}
+    <h2>Character not found</h2>
+{% endif %}
+{% endblock %}

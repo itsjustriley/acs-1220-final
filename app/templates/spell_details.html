@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if spell %}
+  <div class="page-header">
+    <h2>{{ spell.name }}</h2>
+    <small>Level {{ spell.level }} {{ spell.school }}</small>
+  </div>
+    <p>{{ spell.description }}</p>
+
+    <small>Known by: {{ spellcasters_list }}</small>
+
+    <div class="spellcard-buttons">
+      <div class="crud-buttons">
+        <form method="GET" action="/spells/{{ spell.id }}/edit">
+          <button type="submit">Edit</button>
+        </form>
+        <form method="POST" action="/spells/{{ spell.id }}/delete">
+            <button type="submit">Delete</button>
+        </form>
+      </div>
+
+      <form method="POST" action="/spells/{{ spell.id }}/learn">
+        <select id="character_id" name="character_id">
+          {% for character in current_user.characters %}
+            <option value="{{ character.id }}">{{ character.name }}</option>
+          {% endfor %}
+        </select>
+        <input type="hidden" name="spell_id" value="{{ spell.id }}">
+        <button type="submit">Add to Spellbook</button>
+      </form>
+    </div>
+{% else %}
+    <h2>Spell not found</h2>
+{% endif %}
+{% endblock %}

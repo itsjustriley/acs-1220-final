@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Project Title</title>
+        <title>Spell Tracker</title>
         <link rel="stylesheet" href="/static/style.css">
     </head>
     <body>
-        <!-- Add base html here. -->
+        <header>
+            <h1> Spell Tracker </h1>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    {% if current_user.is_authenticated %}
+                        <li><a href="/characters">Characters</a></li>
+                        <li><a href="/spells">Spells</a></li>
+                        <li><a href="/logout">Log Out</a></li>
+                    {% else %}
+                        <li><a href="/signup">Sign Up</a></li>
+                        <li><a href="/login">Log In</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
+        <div class="content">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
         
-        {% block content %}{% endblock %}
+            {% block content %}{% endblock %}
+        </div>
     </body>
 </html>

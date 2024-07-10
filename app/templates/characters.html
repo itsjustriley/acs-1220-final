@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="page-header">
+  <h2>My Characters</h2>
+
+  <form method="GET" action="/characters/new">
+    <button type="submit">new character</button>
+  </form>
+</div>
+
+
+{% for character in user_characters %}
+    <div class="spellcard">
+        <h3>{{ character.name }}</h3>
+        <small>Level {{ character.level }} {{ character.class_ }}</small>
+        <form method="GET" action="/characters/{{ character.id }}">
+            <button type="submit">Details</button>
+        </form>
+    </div>
+{% endfor %}
+{% endblock %}

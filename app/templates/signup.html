@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Sign Up</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <fieldset>
+        <legend>Please enter your information:</legend>
+        <br>
+        {{ form.email.label }}<br>
+        {{ form.email }}<br>
+        <br>
+        {{ form.username.label }}<br>
+        {{ form.username }}<br>
+        <br>
+        {{ form.password.label }}<br>
+        {{ form.password }}<br>
+        <br>
+        {{ form.confirm_password.label }}<br>
+        {{ form.confirm_password }}<br>
+        <br>
+        {{ form.submit }}
+    </fieldset>                
+</form>
+
+{% endblock %}

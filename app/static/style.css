@@ -1,1 +1,133 @@
 /* Add styles here. */
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
+
+:root {
+    --dark-purple: #2a2c41;
+    --mid-purple: #5b536e;
+    --light-purple: #8b89a4;
+    --lightest-purple: #b9b7c9;
+    --peach: #d2a9a3;
+    --pink: #e5c3f9;
+    --white: #f9f6f0;
+}
+
+* {
+    font-family: Helvetica, sans-serif;
+    background-color: var(--dark-purple);
+    color: var(--white);
+}
+
+button, input[type="submit"] {
+  all: unset;
+  padding: .5em;
+  background-color: var(--peach);
+  color: var(--dark-purple);
+  border-radius: 5px;
+  margin-top: 1em;
+}
+
+button:hover, input[type="submit"]:hover {
+  background-color: var(--pink);
+}
+
+input {
+  all: unset;
+  padding: .5em;
+  border-radius: 5px;
+  margin-top: 1em;
+  background-color: var(--lightest-purple);
+  color: var(--dark-purple);
+  border: 2px solid var(--mid-purple);
+}
+
+input:focus {
+  border-color: var(--pink);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background-color: var(--mid-purple);
+}
+
+header * {
+  background-color: transparent;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+.content {
+  padding: 1em;
+}
+h1 {
+  font-family: Tangerine;
+  font-size: 3em;
+  color: var(--peach);
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--peach);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+    margin-right: 1em;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+.spellcard {
+  padding: 1em;
+  margin: 1em;
+  background-color: var(--mid-purple);
+  border-radius: 5px;
+}
+
+.spellcard * {
+  background-color: transparent;
+}
+
+.spellcard-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spellcard-buttons button {
+  background-color: var(--peach);
+}
+
+.spellcard-buttons button:hover {
+  background-color: var(--pink);
+}
+
+.spellcard-buttons select {
+  padding: .5em;
+  background-color: var(--lightest-purple);
+  color: var(--dark-purple);
+  border: 2px solid var(--mid-purple);
+  border-radius: 5px;
+}
+
+.crud-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: .5em;
+}

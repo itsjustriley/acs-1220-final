@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-header">
+  <h2>Spells</h2>
+
+  <form method="GET" action="/spells/new">
+    <button type="submit">new spell</button>
+  </form>
+</div>
+
+
+{% for spell in spells %}
+    <div class="spellcard">
+        <h3>{{ spell.name }}</h3>
+        <small>Level {{ spell.level }} {{ spell.school }}</small>
+        <div class="spellcard-buttons">
+          <form method="GET" action="/spells/{{ spell.id }}">
+              <button type="submit">Details</button>
+          </form>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
